@@ -1,0 +1,49 @@
+{
+  "repository": "https://github.com/opencv/opencv_extra",
+  "commit": "d244584fd02b509f63db08db89b2d38c97ce990d",
+  "download_date": "2026-10-22",
+  "images": [
+    {
+      "file": "boat1.jpg",
+      "url": "https://raw.githubusercontent.com/opencv/opencv_extra/d244584fd02b509f63db08db89b2d38c97ce990d/testdata/stitching/boat1.jpg",
+      "sha256": "c084dab5e87d0c7a018fc6ab75e847621f0809b20a968c42bfb5d58b81303f2e",
+      "bytes": 735707
+    },
+    {
+      "file": "boat2.jpg",
+      "url": "https://raw.githubusercontent.com/opencv/opencv_extra/d244584fd02b509f63db08db89b2d38c97ce990d/testdata/stitching/boat2.jpg",
+      "sha256": "3bb4e222a5879d2555c3f1109e6b77284b418f378db02e6e86cc414f46fb33ad",
+      "bytes": 664333
+    },
+    {
+      "file": "boat3.jpg",
+      "url": "https://raw.githubusercontent.com/opencv/opencv_extra/d244584fd02b509f63db08db89b2d38c97ce990d/testdata/stitching/boat3.jpg",
+      "sha256": "dd3c5c15bff43782039aeeff19361251ab9d60b3fb6d1195df6b7dc357e33e65",
+      "bytes": 703171
+    },
+    {
+      "file": "budapest1.jpg",
+      "url": "https://raw.githubusercontent.com/opencv/opencv_extra/d244584fd02b509f63db08db89b2d38c97ce990d/testdata/stitching/budapest1.jpg",
+      "sha256": "ce6036f15aa48c6a2ecfbcf27292101b6f9f16600377890f8c4319ed3ac89928",
+      "bytes": 287134
+    },
+    {
+      "file": "budapest2.jpg",
+      "url": "https://raw.githubusercontent.com/opencv/opencv_extra/d244584fd02b509f63db08db89b2d38c97ce990d/testdata/stitching/budapest2.jpg",
+      "sha256": "9275def83c1044c139c6659046b0f871a5e3bba84d6d908e9b1ce3beeeb0b8f7",
+      "bytes": 306161
+    },
+    {
+      "file": "newspaper1.jpg",
+      "url": "https://raw.githubusercontent.com/opencv/opencv_extra/d244584fd02b509f63db08db89b2d38c97ce990d/testdata/stitching/newspaper1.jpg",
+      "sha256": "68097faa79804285af4ed390d2372209efde8824fd1290ce808de7882390d0ba",
+      "bytes": 346203
+    },
+    {
+      "file": "newspaper2.jpg",
+      "url": "https://raw.githubusercontent.com/opencv/opencv_extra/d244584fd02b509f63db08db89b2d38c97ce990d/testdata/stitching/newspaper2.jpg",
+      "sha256": "dfca3662fe30a26ecb50949fca978cf2a614f6b007452e3bf5ebb79424aed4da",
+      "bytes": 356494
+    }
+  ]
+}
