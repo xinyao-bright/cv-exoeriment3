@@ -331,8 +331,8 @@ $$H_{B\rightarrow A}\approx
 
 ## 9. 参考资料
 
-1. 课程提供的《实验三参考代码.pdf》，2 页。
-2. David G. Lowe. *Distinctive Image Features from Scale-Invariant Keypoints*. IJCV, 2004. [作者托管论文](https://www.cs.ubc.ca/~lowe/papers/ijcv04.pdf)。
+1. 课程提供的《实验三参考代码.pdf》。
+2. David G. Lowe. *Distinctive Image Features from Scale-Invariant Keypoints*. IJCV, 2004. 
 
 
 
