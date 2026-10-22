@@ -83,7 +83,7 @@ $$L(x,y,\sigma)=G(x,y,\sigma)*I(x,y),$$
 
 SIFT 描述符为浮点向量，实验采用基于 KD-tree 的 FLANN 近似近邻搜索，索引参数为 `algorithm=1`、`trees=5`，搜索参数为 `checks=50`。对 A 的每个描述符，在 B 中查询两个候选，记距离为 $d_1,d_2$。当
 
-$$d_1<r\,d_2$$
+$$d_1<r \, d_2$$
 
 时保留第一候选，默认 $r=0.70$。该条件要求最佳匹配明显优于次佳匹配，从而减少重复纹理中的歧义。它判断的是相对距离，不是简单设定一个固定描述符距离上限。OpenCV 对 FLANN 与比率过滤的说明见 [官方教程](https://docs.opencv.org/4.13.0/d5/d6f/tutorial_feature_flann_matcher.html)。
 
