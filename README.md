@@ -4,7 +4,7 @@
 
 ## 直接查看
 
-- **[实验 Notebook（ipynb，含运行输出）](notebooks/image_stitching.ipynb)**：26 个单元格，其中 13 个代码单元格，逐步展示原图、特征、匹配、画布与拼接结果。
+- **[实验 Notebook（ipynb，含全部代码和运行输出）](notebooks/image_stitching.ipynb)**：26 个单元格，其中 13 个代码单元格，包含核心算法、图片下载、完整实验、可选工具和测试，逐步展示原图、特征、匹配、画布与拼接结果。
 - **[详细实验报告（Markdown）](report.md)**：实验目的、算法公式、代码设计、三场景结果、30 组参数对比、亮度实验、三图拼接、误差分析与思考题。
 - [原图与来源](data/SOURCES.md)、[实测指标](results/metrics.csv)、[完整参数扫描](results/parameter_sweep.csv)。
 
@@ -17,8 +17,10 @@
 ```bash
 git clone https://github.com/xinyao-bright/cv-exoeriment3.git
 cd cv-exoeriment3
-conda env create -f environment.yml
+conda create -n cv-stitching python=3.10 pip -y
 conda activate cv-stitching
+python -m pip install -r requirements.txt
+python -m pip install "notebook>=7,<8"
 python -m ipykernel install --user --name cv-stitching --display-name "Python (cv-stitching)"
 jupyter notebook notebooks/image_stitching.ipynb
 ```
@@ -38,22 +40,23 @@ jupyter notebook notebooks/image_stitching.ipynb
 
 此时在界面选择 **Python (cvex)**。上面的 pip 命令会安装指定版本到当前激活环境；希望隔离依赖时，使用前面的新建环境方法。
 
-### 不打开界面，执行并保存 ipynb
+### 在 Notebook 中运行其他功能
 
-```bash
-conda activate cv-stitching
-python scripts/execute_notebook.py
+所有 Python 代码均已合并到同一个 ipynb，无需额外的 `.py` 文件。按顺序运行全部单元格即可完成实验及四项测试。需要单独使用工具时，在 Notebook 中调用：
+
+```python
+download_images()  # 第 1 节：校验或恢复原图
+summary, sweep, triple = run_experiments(ROOT)  # 第 6 节：重建全部结果
+result = stitch_files('data/boat1.jpg', 'data/boat2.jpg', output='results/custom.jpg')
 ```
 
-该脚本使用当前 Python 创建临时内核，从头运行并保存 `notebooks/image_stitching.ipynb`，不需要额外注册全局内核。执行错误会中止，避免交付带错误输出的文件。
+最后一节还提供可选的重新执行工具：
 
-### 命令行运行实验或自己的照片
-
-```bash
-python scripts/run_experiments.py
-python scripts/stitch.py data/boat1.jpg data/boat2.jpg --output results/custom.jpg
-python -m unittest discover -s tests -v
+```python
+await execute_notebook()
 ```
+
+该工具使用当前 Conda Python 创建临时内核，从头运行并保存同一个 Notebook，不会在“运行全部”时自动调用。日常使用直接选择 **Restart Kernel and Run All Cells** 即可。
 
 本项目使用 `opencv-python-headless`，通过 Notebook 内嵌图片展示结果，不需要 `cv2.imshow`。
 不要在同一环境同时安装多个 OpenCV wheel（如 `opencv-python` 和 `opencv-python-headless`）。
@@ -61,17 +64,9 @@ python -m unittest discover -s tests -v
 ## 文件结构
 
 ```text
-environment.yml                    Conda 环境定义
 requirements.txt                   实验核心依赖的固定版本
-notebooks/image_stitching.ipynb     已运行的实验 Notebook
+notebooks/image_stitching.ipynb     全部实验代码、工具、测试及运行输出
 report.md                          详细 Markdown 报告
-src/stitching.py                    核心算法及图像 IO
-src/experiments.py                  三场景、参数与扩展实验
-scripts/execute_notebook.py         用当前环境从头执行 ipynb
-scripts/run_experiments.py          重建全部结果
-scripts/stitch.py                   两张自定义照片拼接
-scripts/download_images.py          按固定来源和 SHA256 恢复图片
-tests/test_stitching.py             四项行为测试
 data/                              7 张网上获取的原始照片及来源
 results/                           匹配图、拼接图、CSV 和 JSON
 ```
@@ -79,7 +74,7 @@ results/                           匹配图、拼接图、CSV 和 JSON
 ## 已验证结果
 
 Notebook 最终在已有 Conda `cvex` 的 Python 3.10.21 中执行，使用 OpenCV 4.11.0、NumPy 2.2.6、Matplotlib 3.10.3。
-实际执行时将依赖隔离到工作目录后由该 Conda Python 加载，以保留原环境中已有的 OpenCV 安装；仓库的 `environment.yml` 可创建常规独立 Conda 环境。
+实际执行时将依赖隔离到工作目录后由该 Conda Python 加载，以保留原环境中已有的 OpenCV 安装；上面的 Conda 命令可创建常规独立环境。
 
 | 场景 | 候选匹配 | RANSAC 内点 | 内点率 | 内点 RMSE / 像素 |
 | --- | ---: | ---: | ---: | ---: |

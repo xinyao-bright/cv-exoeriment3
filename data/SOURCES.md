@@ -6,7 +6,7 @@
 - 固定提交：`d244584fd02b509f63db08db89b2d38c97ce990d`
 - 下载日期：2026-10-22
 - 逐文件下载链接、字节数、SHA256：[sources.json](sources.json)
-- 恢复或校验图片：在仓库根目录运行 `python scripts/download_images.py`
+- 恢复或校验图片：在 Notebook 第 1 节运行定义后调用 `download_images()`
 
 | 文件 | 原始尺寸（宽 × 高） | 内容 | 用途 |
 | --- | --- | --- | --- |
